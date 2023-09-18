@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express"); 
 const server = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -82,7 +82,7 @@ passport.use(
             return done(null, false, { message: "invalid credentials" });
           }
           const token = jwt.sign(sanitizeUser(user), SECRET_KEY);
-          done(null, { token }); // this lines sends to serializer
+          done(null, {id:user.id, role:user.role}); // this lines sends to serializer
         }
       );
     } catch (err) {
